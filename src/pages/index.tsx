@@ -11,13 +11,13 @@ import Generator from '../components/generator'
 const tinycolor = require('tinycolor2')
 
 const Home: NextPage = () => {
+  const [color, setColor] = useState<any>(tinycolor({ h: 120, s: 0.5, v: 0.5 }))
   const [lightColor, setLightColor] = useState(
     tinycolor({ h: 60, s: 0.05, v: 0.95 })
   )
   const [darkColor, setDarkColor] = useState(
     tinycolor({ h: 280, s: 0.05, v: 0.04 })
   )
-  const [color, setColor] = useState<any>(tinycolor({ h: 120, s: 0.5, v: 0.5 }))
   const [complements, setComplements] = useState<any>(color.tetrad().slice(1))
   const [palette, setPalette] = useState<any[]>([])
 
