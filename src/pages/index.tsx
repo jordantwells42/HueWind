@@ -3,61 +3,14 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react'
 import Landing from '../components/landing'
-import { ColorResult } from 'react-color';
-import LightDark from '../components/lightdark';
+import { ColorResult } from 'react-color'
+import LightDark from '../components/lightdark'
 import Complements from '../components/complements'
-
+import Generator from '../components/generator'
 
 const tinycolor = require('tinycolor2')
-const Spline = require('cubic-spline')
-
-function clamp (value: number, min: number, max: number) {
-  return Math.min(Math.max(value, min), max)
-}
-
-function generatePalette (lightColor: any, seedColor: any, darkColor: any) {
-  const light = tinycolor(lightColor)
-  const seed = tinycolor(seedColor)
-  const dark = tinycolor(darkColor)
-
-  const lightHsv = light.toHsv()
-  const seedHsv = seed.toHsv()
-  const darkHsv = dark.toHsv()
-
-  lightHsv.h = ((lightHsv.h + 180) % 360) - 180
-  seedHsv.h = ((seedHsv.h + 180) % 360) - 180
-  darkHsv.h = ((darkHsv.h + 180) % 360) - 180
-
-  const xs = [0, 500, 1000]
-  const hs = [lightHsv.h, seedHsv.h, darkHsv.h]
-  const splineH = new Spline(xs, hs)
-
-  const ss = [lightHsv.s, seedHsv.s, darkHsv.s]
-  const splineS = new Spline(xs, ss)
-
-  const vs = [lightHsv.v, seedHsv.v, darkHsv.v]
-  const splineV = new Spline(xs, vs)
-
-  console.log(splineV)
-
-  const hueInvariance = 2
-  const palette = []
-  for (let x of [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]) {
-    const h =
-      (splineH.at(x / hueInvariance + (500 - 500 / hueInvariance)) + 720) % 360
-    const s = clamp(splineS.at(x), 0, 1.0)
-    const v = clamp(splineV.at(x), 0, 1.0)
-    console.log(seedHsv)
-    console.log(x, h, s, v)
-    palette.push({ x: x, color: tinycolor({ h: h, s: s, v: v, a: 1 }) })
-  }
-
-  return palette
-}
-
 
 const Home: NextPage = () => {
-
   const [lightColor, setLightColor] = useState(
     tinycolor({ h: 60, s: 0.05, v: 0.95 })
   )
@@ -66,7 +19,7 @@ const Home: NextPage = () => {
   )
   const [color, setColor] = useState<any>(tinycolor({ h: 120, s: 0.5, v: 0.5 }))
   const [complements, setComplements] = useState<any>(color.tetrad().slice(1))
-  const [palettes, setPalettes] = useState<any[]>([])
+  const [palette, setPalette] = useState<any[]>([])
 
   function handlePick (inpcolor: any) {
     setColor(tinycolor(inpcolor.hsv))
@@ -81,7 +34,6 @@ const Home: NextPage = () => {
     setDarkColor(tinycolor(inpcolor.hsv))
   }
 
-
   return (
     <>
       <Head>
@@ -91,43 +43,37 @@ const Home: NextPage = () => {
       </Head>
 
       <div className='w-full bg-slate-50 h-full flex flex-col justify-center items-center overflow-x-hidden'>
-        <Landing color={color} lightColor={lightColor} darkColor={darkColor} handlePick={handlePick} />
-        <Complements color={color} complements={complements} lightColor={lightColor} darkColor={darkColor} setComplements={setComplements} />
-        <LightDark color={color} complements={complements} lightColor={lightColor} darkColor={darkColor} handlePickLight={handlePickLight} handlePickDark={handlePickDark} />
-        
+        <Landing
+          color={color}
+          lightColor={lightColor}
+          darkColor={darkColor}
+          handlePick={handlePick}
+        />
+        <Complements
+          color={color}
+          complements={complements}
+          lightColor={lightColor}
+          darkColor={darkColor}
+          setComplements={setComplements}
+        />
+        <LightDark
+          color={color}
+          complements={complements}
+          lightColor={lightColor}
+          darkColor={darkColor}
+          handlePickLight={handlePickLight}
+          handlePickDark={handlePickDark}
+        />
+        <Generator
+          color={color}
+          complements={complements}
+          lightColor={lightColor}
+          darkColor={darkColor}
+          palette={palette}
+          setPalette={setPalette}
+        />
         <div className='flex flex-col h-full w-full'>
-          {palettes.map((colors, pidx) => (
-            <div key={pidx} className='flex flex-row'>
-              {colors.map((pcolor, idx) => {
-                return (
-                  <div
-                    key={idx}
-                    style={{ backgroundColor: pcolor.color.toRgbString() }}
-                    className='h-20 w-full flex flex-col justify-end items-center font-semibold'
-                  >
-                    <h1
-                      style={{
-                        color: pcolor.color.isDark()
-                          ? lightColor.toHexString()
-                          : darkColor.toHexString()
-                      }}
-                    >
-                      {pcolor.color.toHexString()}
-                    </h1>
-                    <h1
-                      style={{
-                        color: pcolor.color.isDark()
-                          ? lightColor.toHexString()
-                          : darkColor.toHexString()
-                      }}
-                    >
-                      {pcolor.x}
-                    </h1>
-                  </div>
-                )
-              })}
-            </div>
-          ))}
+          
         </div>
         <div className='flex flex-row justify-between w-full h-full'></div>
       </div>
