@@ -1,5 +1,6 @@
 import { ColorResult, SketchPicker } from 'react-color'
 import bestColor from '../bestColor'
+import nearestColor from '../nearestColor';
 
 export default function Landing({color, lightColor, darkColor, handlePick}:{color:any, lightColor:any, darkColor:any, handlePick:(arg0:ColorResult) => void}) {
     return (
@@ -20,12 +21,15 @@ export default function Landing({color, lightColor, darkColor, handlePick}:{colo
             }}>
             Pick a color you like..
           </h2>
+          <div>
+          <h1 className="text-center" style={{color: bestColor(color, [lightColor, darkColor])}}>{nearestColor(color)}</h1>
           <SketchPicker
             disableAlpha={true}
             presetColors={[]}
             color={color}
             onChange={handlePick}
           />
+          </div>
         </div>
     )
 }

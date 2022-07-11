@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "color-name-list": "^9.18.1",
     "cubic-spline": "^3.0.3",
     "mathjs": "^10.6.4",
+    "nearest-color": "^0.4.4",
     "next": "12.2.0",
     "react": "18.2.0",
     "react-code-blocks": "^0.0.9-0",

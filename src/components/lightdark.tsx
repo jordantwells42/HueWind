@@ -1,6 +1,7 @@
 import { ColorResult, SketchPicker } from 'react-color'
 import ColorDots from './colordots'
 import bestColor from '../bestColor';
+import nearestColor from '../nearestColor';
 export default function LightDark ({
   color,
   complements,
@@ -28,12 +29,16 @@ export default function LightDark ({
         >
           Choose a dark color...
         </h1>
+        <div>
+        <h1 className="text-center" style={{color: bestColor(darkColor, [lightColor, darkColor])}}>{nearestColor(darkColor)}</h1>
         <SketchPicker
           disableAlpha={true}
           presetColors={[]}
           color={darkColor}
           onChange={handlePickDark}
         />
+        </div>
+        
         <ColorDots colors={[color, ...complements]} />
         
       </div>
@@ -48,12 +53,14 @@ export default function LightDark ({
         >
           ...and a light color
         </h1>
+        <div><h1 className="text-center" style={{color: bestColor(lightColor, [lightColor, darkColor])}}>{nearestColor(lightColor)}</h1>
         <SketchPicker
           disableAlpha={true}
           presetColors={[]}
           color={lightColor}
           onChange={handlePickLight}
         />
+        </div>
         <ColorDots colors={[color, ...complements]} />
 
         

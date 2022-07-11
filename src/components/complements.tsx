@@ -1,6 +1,7 @@
 import { ColorResult, SketchPicker } from 'react-color'
 import ColorDots from './colordots'
 import bestColor from '../bestColor'
+import nearestColor from '../nearestColor';
 const tinycolor = require('tinycolor2')
 
 export default function Complements ({
@@ -40,6 +41,7 @@ export default function Complements ({
               style={{ backgroundColor: ccolor.toHexString() }}
               key={idx}
             >
+              <h1 style={{color: bestColor(ccolor, [lightColor, darkColor])}}>{nearestColor(ccolor)}</h1>
               <SketchPicker
                 disableAlpha={true}
                 presetColors={[]}
