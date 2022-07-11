@@ -45,6 +45,7 @@ const Home: NextPage = () => {
           name='viewport'
           content='width=device-width, initial-scale=1'
         ></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
         <meta
           property='og:description'
           content='A cohesive theme generator for Tailwind CSS'
