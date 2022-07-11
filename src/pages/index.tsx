@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     tinycolor({ h: 60, s: 0.05, v: 0.95 })
   )
   const [darkColor, setDarkColor] = useState(
-    tinycolor({ h: 280, s: 0.05, v: 0.04 })
+    tinycolor({ h: 280, s: 0.85, v: 0.04 })
   )
   const [complements, setComplements] = useState<any>(color.tetrad().slice(1))
   const [havePicked, setHavePicked] = useState(false)
