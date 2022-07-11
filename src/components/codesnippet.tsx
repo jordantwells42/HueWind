@@ -1,17 +1,19 @@
+import { CodeBlock , dracula} from "react-code-blocks";
+
 export default function CodeSnippet ({ swatch }: { swatch: any[] }) {
-  return (
-    <div className='flex flex-col gap-2'>
-      <p>&quot;myColor&quot;: {'{'}</p>
-      {swatch.map((pcolor: any, idx: number) => {
-        return (
-          <div key={idx}>
-            <p>
-                {`\t"${pcolor.x}": "${pcolor.color.toHexString()}"`},
-            </p>
-          </div>
-        )
-      })}
-      <p>{'}'}</p>
+    let code = `"myColor": {`
+
+    for (let i = 0; i < swatch.length; i++) {
+        const color = swatch[i]
+        code += `\n  "${color.x}": "${color.color.toHexString()}",`
+    }
+
+    code += `\n}`
+
+  
+    return (
+    <div className='flex flex-col'>
+        <CodeBlock className="p-6" language="json" text={code} theme={dracula} showLineNumbers={false} />
     </div>
   )
 }

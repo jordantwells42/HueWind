@@ -23,7 +23,7 @@ export default function Complements ({
       className='w-full h-full md:h-screen flex flex-col items-center justify-center'
     >
       <h1
-        className='w-full h-1/4 text-2xl text-center flex font-bold justify-center items-center'
+        className='w-full h-1/4 text-2xl text-center flex font-bold justify-center items-center p-2'
         style={{
           backgroundColor: lightColor.toHexString(),
           color: darkColor.toHexString()

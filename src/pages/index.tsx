@@ -8,6 +8,7 @@ import LightDark from '../components/lightdark'
 import Complements from '../components/complements'
 import Generator from '../components/generator'
 import CodeSnippet from '../components/codesnippet'
+import Explanation from '../components/explanation'
 
 const tinycolor = require('tinycolor2')
 
@@ -77,6 +78,7 @@ const Home: NextPage = () => {
           palette={palette}
           setPalette={setPalette}
         />
+        <Explanation palette={palette} lightColor={lightColor} darkColor={darkColor}/>
         
         <div className='flex flex-col h-full w-full'>
           

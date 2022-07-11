@@ -86,7 +86,7 @@ export default function Generator ({
   return (
     <div
       style={{ backgroundColor: lightColor.toHexString() }}
-      className='w-full h-screen flex-col flex justify-start items-center'
+      className='w-full h-full md:h-screen flex-col flex justify-start items-center p-4'
     >
       <div className='w-full flex flex-row justify-center items-center text-center p-10'>
         <button
@@ -111,7 +111,7 @@ export default function Generator ({
             className='w-full flex flex-col justify-center items-center font-semibold relative'
             key={swatch}
           > 
-          <div style={{ backgroundColor: darkColor.toRgbString(), color: lightColor.toRgbString(), display: showSwatchs[idx]?"block":"none" }} className="absolute p-5 rounded-xl" >
+          <div style={{ backgroundColor: darkColor.toRgbString(), color: lightColor.toRgbString(), display: showSwatchs[idx]?"block":"none" }} className="absolute rounded-xl" >
             <CodeSnippet swatch={swatch} />
               </div>
             <button style={{ backgroundColor: darkColor.toRgbString(), color: lightColor.toRgbString() }}  className="w-full text-white p-1" onClick={() => handleShowSwatch(idx)}>{!showSwatchs[idx] ? 'Show Tailwind Config' : 'Hide'}</button>
