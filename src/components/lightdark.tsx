@@ -17,15 +17,35 @@ export default function LightDark ({
 }) {
   return (
     <div className='w-full h-screen flex flex-col justify-center items-center'>
+            <div
+        style={{ backgroundColor: darkColor.toHexString() }}
+        className='w-full h-1/2 flex flex-col md:flex-row justify-center items-center gap-10 relative'
+      >
+        <h1
+          style={{ color: lightColor.toHexString() }}
+          className='text-2xl font-bold text-left'
+        >
+          Choose a dark color...
+        </h1>
+        <SketchPicker
+          disableAlpha={true}
+          presetColors={[]}
+          color={darkColor}
+          onChange={handlePickDark}
+        />
+        <ColorDots colors={[color, ...complements]} />
+        
+      </div>
       <div
         style={{ backgroundColor: lightColor.toHexString() }}
-        className='w-full h-1/2 flex flex-row justify-center items-center gap-10 relative'
+        className='w-full h-1/2 flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-10 relative'
       >
+        
         <h1
           style={{ color: darkColor.toHexString() }}
           className='text-2xl font-bold text-left'
         >
-          Choose a light color...
+          ...and a light color
         </h1>
         <SketchPicker
           disableAlpha={true}
@@ -37,25 +57,7 @@ export default function LightDark ({
 
         
       </div>
-      <div
-        style={{ backgroundColor: darkColor.toHexString() }}
-        className='w-full h-1/2 flex flex-row-reverse justify-center items-center gap-10 relative'
-      >
-        <h1
-          style={{ color: lightColor.toHexString() }}
-          className='text-2xl font-bold text-left'
-        >
-          ...and a dark color
-        </h1>
-        <SketchPicker
-          disableAlpha={true}
-          presetColors={[]}
-          color={darkColor}
-          onChange={handlePickDark}
-        />
-        <ColorDots colors={[color, ...complements]} />
-        
-      </div>
+
     </div>
   )
 }

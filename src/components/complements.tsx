@@ -7,18 +7,20 @@ export default function Complements ({
   complements,
   lightColor,
   darkColor,
-  setComplements
+  setComplements,
+  setHavePicked
 }: {
   color: any
   complements: any
   lightColor: any
   darkColor: any
   setComplements: (arg0: any) => void
+    setHavePicked: (arg0: any) => void
 }) {
   return (
     <div
       style={{ backgroundColor: color.toHexString() }}
-      className='w-full h-screen flex flex-col items-center justify-center'
+      className='w-full h-full md:h-screen flex flex-col items-center justify-center'
     >
       <h1
         className='w-full h-1/4 text-2xl text-center flex font-bold justify-center items-center'
@@ -29,7 +31,7 @@ export default function Complements ({
       >
         Choose some complementary colors...
       </h1>
-      <div className='w-full h-3/4 flex flex-row items-center justify-center'>
+      <div className='w-full h-3/4 flex flex-col md:flex-row items-center justify-center'>
         {complements.map((ccolor: any, idx: number) => {
           return (
             <div
@@ -42,11 +44,11 @@ export default function Complements ({
                 presetColors={[]}
                 color={ccolor}
                 onChange={inp =>
-                  setComplements((p: any) =>
+                  [setComplements((p: any) =>
                     p.map((c: any, i: number) =>
                       i === idx ? tinycolor(inp.hex) : c
                     )
-                  )
+                  ), setHavePicked(true)]
                 }
               />
               <ColorDots colors={[color, ...complements]} />

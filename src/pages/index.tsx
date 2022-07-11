@@ -7,6 +7,7 @@ import { ColorResult } from 'react-color'
 import LightDark from '../components/lightdark'
 import Complements from '../components/complements'
 import Generator from '../components/generator'
+import CodeSnippet from '../components/codesnippet'
 
 const tinycolor = require('tinycolor2')
 
@@ -19,11 +20,12 @@ const Home: NextPage = () => {
     tinycolor({ h: 280, s: 0.05, v: 0.04 })
   )
   const [complements, setComplements] = useState<any>(color.tetrad().slice(1))
+  const [havePicked, setHavePicked] = useState(false)
   const [palette, setPalette] = useState<any[]>([])
 
   function handlePick (inpcolor: any) {
     setColor(tinycolor(inpcolor.hsv))
-    setComplements(color.tetrad().slice(1))
+    !havePicked && setComplements(color.tetrad().slice(1))
   }
 
   function handlePickLight (inpcolor: any) {
@@ -42,7 +44,9 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='w-full bg-slate-50 h-full flex flex-col justify-center items-center overflow-x-hidden'>
+      <div  style={{
+            backgroundColor: lightColor.toHexString()
+          }} className='w-full  h-full flex flex-col justify-center items-center overflow-x-hidden'>
         <Landing
           color={color}
           lightColor={lightColor}
@@ -54,6 +58,7 @@ const Home: NextPage = () => {
           complements={complements}
           lightColor={lightColor}
           darkColor={darkColor}
+          setHavePicked={setHavePicked}
           setComplements={setComplements}
         />
         <LightDark
@@ -72,6 +77,7 @@ const Home: NextPage = () => {
           palette={palette}
           setPalette={setPalette}
         />
+        
         <div className='flex flex-col h-full w-full'>
           
         </div>
