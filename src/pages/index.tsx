@@ -46,6 +46,11 @@ const Home: NextPage = () => {
           content='width=device-width, initial-scale=1'
         ></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta name="twitter:site" content="@jordantwells42">
+<meta name="twitter:creator" content="@jordantwells42">
+<meta name="twitter:title" content="HueWind">
+<meta name="twitter:description" content="A cohesive theme generator for Tailwind CSS">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/8213365/178173019-91491535-b7c2-4049-b4f5-2c4c43e8475c.png">
         <meta
           property='og:description'
           content='A cohesive theme generator for Tailwind CSS'
