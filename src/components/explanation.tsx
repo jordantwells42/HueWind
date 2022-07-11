@@ -67,7 +67,7 @@ const [showCode, setShowCode] = useState(false)
       </div>
       <div className='w-full flex justify-center'>
         <div className="w-3/4">
-        <button  style={{backgroundColor: darkColor.toHexString(), color: bestColor(darkColor, [lightColor, darkColor])}} className='w-full text-2xl font-semibold' onClick={handleShowCode}>Show Code</button>
+        <button  style={{backgroundColor: darkColor.toHexString(), color: bestColor(darkColor, [lightColor, darkColor])}} className='w-full text-2xl font-semibold' onClick={handleShowCode}>Show Full Config</button>
         <div style={{display:showCode?"block":"none"}}>
         <CodeBlock
           text={code}
