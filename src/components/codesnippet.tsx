@@ -1,11 +1,11 @@
 import { CodeBlock , dracula} from "react-code-blocks";
 
 export default function CodeSnippet ({ swatch }: { swatch: any[] }) {
-    let code = `"myColor": {`
+    let code = `myColor: {`
 
     for (let i = 0; i < swatch.length; i++) {
         const color = swatch[i]
-        code += `\n  "${color.x}": "${color.color.toHexString()}",`
+        code += `\n\t${color.x}: "${color.color.toHexString()}",`
     }
 
     code += `\n}`
