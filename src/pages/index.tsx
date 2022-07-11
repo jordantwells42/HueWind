@@ -41,8 +41,26 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>HueWind</title>
-        <meta name='description' content='An app for creating Tailwind CSS themes' />
-        <link rel='icon' href='/favicon.ico' />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1'
+        ></meta>
+        <meta
+          property='og:description'
+          content='A cohesive theme generator for Tailwind CSS'
+        />
+        <meta
+          name='description'
+          content='A cohesive theme generator for Tailwind CSS'
+        />
+        <meta property='og:title' content='HueWind' key='title' />
+        <meta
+          property='og:image'
+          content={
+            'https://user-images.githubusercontent.com/8213365/178173019-91491535-b7c2-4049-b4f5-2c4c43e8475c.png'
+          }
+        />
+        <meta property='og:url' content={'https://huewind.jordantwells.com'} />
       </Head>
 
       <div  style={{
