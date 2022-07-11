@@ -34,7 +34,7 @@ const [showCode, setShowCode] = useState(false)
     code += `\n\t\t\t\tcolor${i}: {`
     for (let j = 0; j < swatch.length; j++) {
       const color = swatch[j]
-      code += `\n\t\t\t\t\t"${color.x}": "${color.color.toHexString()}",`
+      code += `\n\t\t\t\t\t${color.x}: "${color.color.toHexString()}",`
     }
     code += '\n\t\t\t\t},\n'
   }
