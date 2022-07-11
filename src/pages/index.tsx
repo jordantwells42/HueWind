@@ -79,11 +79,6 @@ const Home: NextPage = () => {
           setPalette={setPalette}
         />
         <Explanation palette={palette} lightColor={lightColor} darkColor={darkColor}/>
-        
-        <div className='flex flex-col h-full w-full'>
-          
-        </div>
-        <div className='flex flex-row justify-between w-full h-full'></div>
       </div>
     </>
   )

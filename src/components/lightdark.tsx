@@ -1,5 +1,6 @@
 import { ColorResult, SketchPicker } from 'react-color'
 import ColorDots from './colordots'
+import bestColor from '../bestColor';
 export default function LightDark ({
   color,
   complements,
@@ -22,7 +23,7 @@ export default function LightDark ({
         className='w-full h-1/2 flex flex-col md:flex-row justify-center items-center gap-10 relative p-2'
       >
         <h1
-          style={{ color: lightColor.toHexString() }}
+          style={{ color: bestColor(darkColor, [lightColor, darkColor]) }}
           className='text-2xl font-bold text-left'
         >
           Choose a dark color...
@@ -42,7 +43,7 @@ export default function LightDark ({
       >
         
         <h1
-          style={{ color: darkColor.toHexString() }}
+          style={{ color: bestColor(lightColor, [lightColor, darkColor]) }}
           className='text-2xl font-bold text-left'
         >
           ...and a light color

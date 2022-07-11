@@ -1,4 +1,5 @@
 import { ColorResult, SketchPicker } from 'react-color'
+import bestColor from '../bestColor'
 
 export default function Landing({color, lightColor, darkColor, handlePick}:{color:any, lightColor:any, darkColor:any, handlePick:(arg0:ColorResult) => void}) {
     return (
@@ -8,18 +9,14 @@ export default function Landing({color, lightColor, darkColor, handlePick}:{colo
         >
           <h1
             style={{
-              color: color.isDark()
-                ? lightColor.toHexString()
-                : darkColor.toHexString()
+              color: bestColor(color, [lightColor, darkColor])
             }}
             className='text-4xl font-bold text-left'
           >
             HueWind
           </h1>
           <h2 className='text-2xl font-bold text-left' style={{
-              color: color.isDark()
-                ? lightColor.toHexString()
-                : darkColor.toHexString()
+              color: bestColor(color, [lightColor, darkColor])
             }}>
             Pick a color you like..
           </h2>

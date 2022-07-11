@@ -1,5 +1,6 @@
 import { CodeBlock, dracula } from 'react-code-blocks'
 import { useState } from 'react';
+import bestColor from '../bestColor';
 
 export default function Explanation ({
   palette,
@@ -43,7 +44,7 @@ const [showCode, setShowCode] = useState(false)
 
   return (
     <div className='w-full h-full min-h-screen flex flex-col md:flex-row justify-between p-4'>
-      <div style={{color: darkColor.toHexString()}} className='w-full flex-col flex justify-start items-center gap-4'>
+      <div style={{color: bestColor(lightColor, [lightColor, darkColor])}} className='w-full flex-col flex justify-start items-center gap-4'>
         <h1 className='font-bold text-center text-3xl'>
           How to update your Tailwind Config
         </h1>
@@ -66,7 +67,7 @@ const [showCode, setShowCode] = useState(false)
       </div>
       <div className='w-full flex justify-center'>
         <div className="w-3/4">
-        <button  style={{backgroundColor: darkColor.toHexString(), color: lightColor.toHexString()}} className='w-full text-2xl font-semibold' onClick={handleShowCode}>Show Code</button>
+        <button  style={{backgroundColor: darkColor.toHexString(), color: bestColor(darkColor, [lightColor, darkColor])}} className='w-full text-2xl font-semibold' onClick={handleShowCode}>Show Code</button>
         <div style={{display:showCode?"block":"none"}}>
         <CodeBlock
           text={code}

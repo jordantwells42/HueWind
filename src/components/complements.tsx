@@ -1,5 +1,6 @@
 import { ColorResult, SketchPicker } from 'react-color'
 import ColorDots from './colordots'
+import bestColor from '../bestColor'
 const tinycolor = require('tinycolor2')
 
 export default function Complements ({
@@ -26,7 +27,7 @@ export default function Complements ({
         className='w-full h-1/4 text-2xl text-center flex font-bold justify-center items-center p-2'
         style={{
           backgroundColor: lightColor.toHexString(),
-          color: darkColor.toHexString()
+          color: bestColor(lightColor, [lightColor, darkColor])
         }}
       >
         Choose some complementary colors...
