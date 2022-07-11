@@ -68,7 +68,7 @@ export default function Generator ({
   palette: any[][]
   setPalette: (arg0: any) => void
 }) {
-  const [hueInvariance, setHueInvariance] = useState<number>(2)
+  const [hueInvariance, setHueInvariance] = useState<number>(1.25)
   const [showSwatchs, setShowSwatchs] = useState<boolean[]>([false, false, false, false])
 
   function handleGenerate () {
