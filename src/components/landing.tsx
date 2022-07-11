@@ -14,7 +14,7 @@ export default function Landing({color, lightColor, darkColor, handlePick}:{colo
             }}
             className='text-4xl font-bold text-left'
           >
-            PaletTail
+            HueWind
           </h1>
           <h2 className='text-2xl font-bold text-left' style={{
               color: color.isDark()
