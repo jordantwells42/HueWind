@@ -104,7 +104,7 @@ export default function Generator ({
         style={{
           color: darkColor.toHexString()
         }}
-        className='flex flex-col md:flex-row w-full justify-center items-center '
+        className='flex flex-col md:flex-row w-full justify-center items-center gap-2'
       >
         {palette.map((swatch: any, idx:number) => (
           <div
