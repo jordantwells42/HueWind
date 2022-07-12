@@ -25,16 +25,21 @@ export default function Complements ({
       style={{ backgroundColor: color.toHexString() }}
       className='w-full h-full md:h-screen flex flex-col items-center justify-center'
     >
-      <h1
-        className='w-full h-1/4 text-2xl text-center flex font-bold justify-center items-center p-2'
-        style={{
+      <div style={{
           backgroundColor: lightColor.toHexString(),
           color: bestColor(lightColor, [lightColor, darkColor])
-        }}
+        }} className='w-full h-full md:h-1/4 text-2xl text-center flex flex-col font-bold justify-center items-center p-2'>
+      <h1
+        
+        
       >
         Choose some complementary colors...
+        
       </h1>
-      <div className='w-full h-3/4 flex flex-col md:flex-row items-center justify-center'>
+      <DownArrow style={{color: bestColor(lightColor, [lightColor, darkColor])}} />
+      </div>
+      
+      <div className='w-full h-full md:h-3/4 flex flex-col md:flex-row items-center justify-center'>
         {complements.map((ccolor: any, idx: number) => {
           return (
             <div
@@ -55,7 +60,6 @@ export default function Complements ({
                   ), setHavePicked(true)]
                 }
               />
-              {idx == 1 && <DownArrow style={{color: bestColor(ccolor, [lightColor, darkColor])}} />}
               <ColorDots colors={[color, ...complements]} />
             </div>
           )
