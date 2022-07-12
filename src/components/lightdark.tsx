@@ -2,6 +2,7 @@ import { ColorResult, SketchPicker } from 'react-color'
 import ColorDots from './colordots'
 import bestColor from '../bestColor';
 import nearestColor from '../nearestColor';
+import DownArrow from './downarrow';
 export default function LightDark ({
   color,
   complements,
@@ -38,6 +39,7 @@ export default function LightDark ({
           onChange={handlePickDark}
         />
         </div>
+        <DownArrow style={{color: bestColor(darkColor, [lightColor, darkColor])}} />
         
         <ColorDots colors={[color, ...complements]} />
         
@@ -61,6 +63,7 @@ export default function LightDark ({
           onChange={handlePickLight}
         />
         </div>
+        <DownArrow style={{color: bestColor(lightColor, [lightColor, darkColor])}} />
         <ColorDots colors={[color, ...complements]} />
 
         

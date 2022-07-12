@@ -2,6 +2,7 @@ import { ColorResult, SketchPicker } from 'react-color'
 import ColorDots from './colordots'
 import bestColor from '../bestColor'
 import nearestColor from '../nearestColor';
+import DownArrow from './downarrow';
 const tinycolor = require('tinycolor2')
 
 export default function Complements ({
@@ -54,6 +55,7 @@ export default function Complements ({
                   ), setHavePicked(true)]
                 }
               />
+              {idx == 1 && <DownArrow style={{color: bestColor(ccolor, [lightColor, darkColor])}} />}
               <ColorDots colors={[color, ...complements]} />
             </div>
           )

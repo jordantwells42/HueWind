@@ -93,12 +93,13 @@ export default function Generator ({
         <button
           style={{
             backgroundColor: darkColor.toHexString(),
-            color: bestColor(darkColor, [lightColor, darkColor])
+            color: bestColor(darkColor, [lightColor, darkColor]),
+            borderColor: color.toHexString()
           }}
-          className='text-2xl rounded-2xl p-3 font-semibold'
+          className='border-0 text-2xl rounded-2xl p-3 font-semibold'
           onClick={handleGenerate}
         >
-          Create your custom palette 
+          Generate your custom palette!
         </button>
       </div>
       <div
