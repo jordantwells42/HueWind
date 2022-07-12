@@ -99,7 +99,7 @@ export default function Generator ({
           className='border-0 text-2xl rounded-2xl p-3 font-semibold'
           onClick={handleGenerate}
         >
-          Generate your custom palette!
+          Press me to generate your custom palette!
         </button>
       </div>
       <div
