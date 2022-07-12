@@ -29,6 +29,7 @@ export default function Landing({color, lightColor, darkColor, handlePick}:{colo
             presetColors={[]}
             color={color}
             onChange={handlePick}
+            onChangeComplete={handlePick}
           />
           </div>
           <DownArrow style={{color: bestColor(color, [lightColor, darkColor])}}/>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import CodeSnippet from './codesnippet'
 import bestColor from '../bestColor';
+import { Range } from 'react-range';
 
 const tinycolor = require('tinycolor2')
 const Spline = require('cubic-spline')
@@ -89,18 +90,56 @@ export default function Generator ({
       style={{ backgroundColor: lightColor.toHexString() }}
       className='w-full h-full md:h-screen flex-col flex justify-start items-center p-4'
     >
-      <div className='w-full flex flex-row justify-center items-center text-center p-10'>
+      <div className='w-full flex flex-row-reverse justify-center items-center text-center p-10'>
+      <div style={{color: bestColor(lightColor, [lightColor, darkColor])}} className="w-1/2 flex flex-col justify-center items-center font-semibold p-5">
+          <h1 className='text-2xl'>Set Hue Invariance: <b>{hueInvariance}</b></h1>
+          <h1 className='text-2xl p-2'> (how much to ignore light and dark hues)</h1>
+          <div className='w-1/2 flex justify-center items-center'>
+        <Range
+        step={0.1}
+        min={1}
+        max={3}
+        values={[hueInvariance]}
+        onChange={(values) => setHueInvariance(values[0] as number)}
+        renderTrack={({ props, children }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+              height: '4px',
+              width: '100%',
+              backgroundColor: '#ccc'
+            }}
+          >
+            {children}
+          </div>
+        )}
+        renderThumb={({ props }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+              height: '10px',
+              width: '10px',
+              backgroundColor: bestColor(lightColor, [lightColor, darkColor])
+            }}
+          />
+        )}
+      />
+      </div>
+      </div>
         <button
           style={{
             backgroundColor: darkColor.toHexString(),
             color: bestColor(darkColor, [lightColor, darkColor]),
             borderColor: color.toHexString()
           }}
-          className='border-0 text-2xl rounded-2xl p-3 font-semibold'
+          className='w-1/2 border-0 text-2xl rounded-2xl p-3 font-semibold'
           onClick={handleGenerate}
         >
           Press me to generate your custom palette!
         </button>
+        
       </div>
       <div
         style={{
