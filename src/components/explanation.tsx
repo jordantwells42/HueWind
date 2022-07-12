@@ -69,6 +69,16 @@ const [showCode, setShowCode] = useState(false)
         <p className='max-w-prose w-3/4 text-left text-xl'>
         This tool uses cubic spline interpolation to generate colors that are inherently related to your light and dark values, giving the entire palette a cohesive feel.
         </p>
+        <h1 className='font-bold text-center text-3xl pt-10'>
+          How should I use it?
+        </h1>
+        <p className='max-w-prose w-3/4 text-left text-xl'>
+          For maximum readibility, use text colors that maximize contrast on any given color. An example is shown on the gradient of the best color for text for optimal contrast (out of light, dark, #FFFFFF, and #000000). 
+          Additionally, be mindful about color choices depending on the style of app. Many loud and contrasting colors can distract from content on a page, but can be very interesting if used artistic purposes.
+        </p>
+        <p className='max-w-prose w-3/4 text-left text-xl'>
+        If you enjoy using this tool feel free to send me your project made using it on Twitter @jordantwells42! I would love to see them.
+        </p>
       </div>
       <div className='w-full flex justify-center'>
         <div className="w-3/4">
