@@ -85,6 +85,19 @@ export default function Generator ({
     setShowSwatchs(showSwatchs.map((show, i) => i === idx ? !show : show))
   }
 
+  function handleSlide(value: number){
+    setHueInvariance(value)
+    palette = []
+    palette.push(generateSwatch(lightColor, color, darkColor, value))
+    complements.map(color =>
+      palette.push(generateSwatch(lightColor, color, darkColor, value))
+    )
+    setPalette(palette)
+
+  }
+
+
+
   return (
     <div
       style={{ backgroundColor: lightColor.toHexString() }}
@@ -100,7 +113,7 @@ export default function Generator ({
         min={1}
         max={3}
         values={[hueInvariance]}
-        onChange={(values) => setHueInvariance(values[0] as number)}
+        onChange={(values) => handleSlide(values[0] as number)}
         renderTrack={({ props, children }) => (
           <div
             {...props}
