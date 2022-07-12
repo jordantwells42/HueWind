@@ -2,6 +2,8 @@
 
 This is an app for quickly generating a theme for Tailwind CSS. It uses cubic interpolation to create a swatch of colors that cohesively blends between your light value, a chosen primary color, and a dark value. It also determines a tetrad of complementary colors to make generation of a full theme quick and easy.
 
+[huewind.jordantwells.com](https://huewind.jordantwells.com)
+
 
 <img width="1268" alt="image" src="https://user-images.githubusercontent.com/8213365/178173019-91491535-b7c2-4049-b4f5-2c4c43e8475c.png">
 
