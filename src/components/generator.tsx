@@ -90,11 +90,11 @@ export default function Generator ({
       style={{ backgroundColor: lightColor.toHexString() }}
       className='w-full h-full md:h-screen flex-col flex justify-start items-center p-4'
     >
-      <div className='w-full flex flex-row-reverse justify-center items-center text-center p-10'>
-      <div style={{color: bestColor(lightColor, [lightColor, darkColor])}} className="w-1/2 flex flex-col justify-center items-center font-semibold p-5">
+      <div className='w-full flex flex-col-reverse md:flex-row-reverse justify-center items-center text-center p-10'>
+      <div style={{color: bestColor(lightColor, [lightColor, darkColor])}} className="w-full md:w-1/2 flex flex-col justify-center items-center font-semibold p-5">
           <h1 className='text-2xl'>Set Hue Invariance: <b>{hueInvariance}</b></h1>
           <h1 className='text-2xl p-2'> (how much to ignore light and dark hues)</h1>
-          <div className='w-1/2 flex justify-center items-center'>
+          <div className='w-full md:w-1/2 flex justify-center items-center'>
         <Range
         step={0.1}
         min={1}
@@ -134,7 +134,7 @@ export default function Generator ({
             color: bestColor(darkColor, [lightColor, darkColor]),
             borderColor: color.toHexString()
           }}
-          className='w-1/2 border-0 text-2xl rounded-2xl p-3 font-semibold'
+          className='w-full md:w-1/2 border-0 text-2xl rounded-2xl p-3 font-semibold'
           onClick={handleGenerate}
         >
           Press me to generate your custom palette!
