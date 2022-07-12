@@ -28,7 +28,7 @@ export default function Complements ({
       <div style={{
           backgroundColor: lightColor.toHexString(),
           color: bestColor(lightColor, [lightColor, darkColor])
-        }} className='w-full h-full md:h-1/4 text-2xl text-center flex flex-col font-bold justify-center items-center p-2'>
+        }} className='w-full h-full md:h-1/4 text-2xl text-center flex flex-col font-bold justify-center items-center p-3'>
       <h1
         
         
@@ -43,7 +43,7 @@ export default function Complements ({
         {complements.map((ccolor: any, idx: number) => {
           return (
             <div
-              className='w-full h-full flex flex-col items-center justify-center relative'
+              className='w-full h-full flex flex-col items-center justify-center relative p-3'
               style={{ backgroundColor: ccolor.toHexString() }}
               key={idx}
             >
