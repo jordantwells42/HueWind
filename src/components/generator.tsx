@@ -95,10 +95,10 @@ export default function Generator ({
             backgroundColor: darkColor.toHexString(),
             color: bestColor(darkColor, [lightColor, darkColor])
           }}
-          className='text-2xl rounded-2xl  p-3 font-semibold'
+          className='text-2xl rounded-2xl p-3 font-semibold'
           onClick={handleGenerate}
         >
-          Generate
+          Create your custom palette 
         </button>
       </div>
       <div
