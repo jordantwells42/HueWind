@@ -1,6 +1,7 @@
 import { CodeBlock, dracula } from 'react-code-blocks'
 import { useState } from 'react';
 import bestColor from '../bestColor';
+import nearestColor from '../nearestColor';
 
 export default function Explanation ({
   palette,
@@ -11,7 +12,11 @@ export default function Explanation ({
   lightColor: any
   darkColor: any
 }) {
-
+  function camelize(str: string) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word: string, index: number) {
+      return index === 0 ? word.toLowerCase() : word.toUpperCase();
+    }).replace(/\s+/g, '');
+  }
 
 const [showCode, setShowCode] = useState(false)
 
@@ -32,7 +37,7 @@ const [showCode, setShowCode] = useState(false)
 
   for (let i = 0; i < palette.length; i++) {
     const swatch = palette[i] as any[]
-    code += `\n\t\t\t\tcolor${i}: {`
+    code += `\n\t\t\t\t${camelize(nearestColor(swatch[5].color))}: {`
     for (let j = 0; j < swatch.length; j++) {
       const color = swatch[j]
       code += `\n\t\t\t\t\t${color.x}: "${color.color.toHexString()}",`
