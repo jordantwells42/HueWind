@@ -46,7 +46,7 @@ export default function LightDark ({
       </div>
       <div
         style={{ backgroundColor: lightColor.toHexString() }}
-        className='w-full h-1/2 flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-10 relative p-2'
+        className='w-full h-1/2 flex flex-col md:flex-row-reverse justify-center items-center gap-10 relative p-2'
       >
         
         <h1
