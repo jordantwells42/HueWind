@@ -19,3 +19,5 @@ This is an app for quickly generating a theme for Tailwind CSS. It uses cubic in
 
 <img width="1264" alt="image" src="https://user-images.githubusercontent.com/8213365/178173127-f3674450-9158-4da0-b924-51e57af64901.png">
 
+Created with [https://github.com/t3-oss/create-t3-app](https://github.com/t3-oss/create-t3-app)
+
