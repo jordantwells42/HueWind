@@ -6,7 +6,7 @@ import Color from './color'
 export default function Gradient ({
   palette,
   lightColor,
-  darkColor
+  darkColor,
 }: {
   palette: any[][]
   lightColor: any
@@ -33,8 +33,9 @@ export default function Gradient ({
           className='w-full flex flex-col justify-center items-center font-semibold relative'
           key={pidx}
         >
+          
           <CodeSnippet swatch={swatch} show={showSwatchs[pidx] as boolean} />
-
+          
           <button
             style={{
               backgroundColor: darkColor.toRgbString(),

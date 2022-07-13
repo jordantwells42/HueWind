@@ -1,22 +1,22 @@
 import { useEffect } from 'react'
 import { useSpring, animated } from 'react-spring'
 
-const ANIMATION_DELAY = 50
+const ANIMATION_DELAY = 100
 
 export default function Color ({
   style,
   color,
-  idx
+  idx,
 }: {
   style: { backgroundColor: string; color: string }
   color: { color: any; x: number }
   idx: number
 }) {
-  const [styles, api] = useSpring(() => ({ from: { opacity: 0, x: 100 } }))
+  const [styles, api] = useSpring(() => ({ from: { opacity: 0, x: 0, transform:`perspective(600px) rotateX(0deg)` } }))
 
   useEffect(() => {
     api.start({
-      to: { opacity: 1, x: 0 },
+      to: { opacity: 1, x: 0, transform:`perspective(600px) rotateX(360deg)` },
       delay: ANIMATION_DELAY * Math.sqrt(idx)
     })
   }, [api, idx])

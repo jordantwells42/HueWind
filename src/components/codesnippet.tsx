@@ -32,7 +32,7 @@ export default function CodeSnippet ({
   return (
     <animated.div
       style={{ opacity, y }}
-      className='absolute top-10 flex flex-col'
+      className='absolute top-10 flex flex-col z-10'
     >
       <CodeBlock
         style={{ opacity, y }}
