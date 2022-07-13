@@ -17,7 +17,7 @@ export default function Landing ({
   return (
     <div
       style={{ backgroundColor: color.toHexString() }}
-      className='w-full h-screen flex flex-col items-center justify-center p-4 gap-10'
+      className='w-full h-screen md:snap-start flex flex-col items-center justify-center p-4 gap-10'
     >
       <h1
         style={{

@@ -23,7 +23,7 @@ export default function Complements ({
   return (
     <div
       style={{ backgroundColor: color.toHexString() }}
-      className='w-full h-full md:h-screen flex flex-col items-center justify-center'
+      className='w-full h-full md:h-screen md:snap-start flex flex-col items-center justify-center'
     >
       <div
         style={{
