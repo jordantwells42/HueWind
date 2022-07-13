@@ -1,7 +1,7 @@
 import { CodeBlock, dracula } from 'react-code-blocks'
 import nearestColor from '../nearestColor'
-import { useSpring, animated } from 'react-spring';
-import { useEffect } from 'react';
+import { useSpring, animated } from 'react-spring'
+import { useEffect } from 'react'
 
 function camelize (str: string) {
   return str
@@ -11,9 +11,14 @@ function camelize (str: string) {
     .replace(/\s+/g, '')
 }
 
-export default function CodeSnippet ({ swatch, show }: { swatch: any[], show: boolean }) {
-  const {opacity, y} = useSpring({opacity: show? 1:0, y:show?0:10 })
-
+export default function CodeSnippet ({
+  swatch,
+  show
+}: {
+  swatch: any[]
+  show: boolean
+}) {
+  const { opacity, y } = useSpring({ opacity: show ? 1 : 0, y: show ? 0 : 10 })
 
   let code = `${camelize(nearestColor(swatch[5].color))}: {`
 
@@ -25,9 +30,12 @@ export default function CodeSnippet ({ swatch, show }: { swatch: any[], show: bo
   code += `\n}`
 
   return (
-    <animated.div style={{opacity, y}} className='absolute top-10 flex flex-col'>
+    <animated.div
+      style={{ opacity, y }}
+      className='absolute top-10 flex flex-col'
+    >
       <CodeBlock
-      style={{opacity, y}}
+        style={{ opacity, y }}
         className='p-6'
         language='json'
         text={code}

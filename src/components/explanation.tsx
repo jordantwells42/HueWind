@@ -2,7 +2,7 @@ import { CodeBlock, dracula } from 'react-code-blocks'
 import { useState } from 'react'
 import bestColor from '../bestColor'
 import nearestColor from '../nearestColor'
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring'
 
 export default function Explanation ({
   palette,
@@ -54,7 +54,7 @@ export default function Explanation ({
   code += `\n\t\t\t},\n\t\t},\n\t},\n}`
 
   return (
-    <div className='w-full h-full min-h-screen flex flex-col md:flex-row justify-between p-4'>
+    <div className='w-full h-full flex flex-col md:flex-row justify-between p-4 pb-20'>
       <div
         style={{ color: bestColor(lightColor, [lightColor, darkColor]) }}
         className='w-full flex-col flex justify-start items-center gap-4'
@@ -95,10 +95,13 @@ export default function Explanation ({
           How should I use it?
         </h1>
         <p className='max-w-prose w-3/4 text-left text-xl'>
-          For maximum readibility, use text colors that maximize contrast on any given color. Text on the gradient shows the best color for optimal contrast (out of light, dark, #FFFFFF, and #000000). 
+          For maximum readibility, use text colors that maximize contrast on any
+          given color. Text on the gradient shows the best color for optimal
+          contrast (out of light, dark, #FFFFFF, and #000000).
         </p>
         <p className='max-w-prose w-3/4 text-left text-xl'>
-        If you enjoy using this tool send me your project made using it on Twitter @jordantwells42! I would love to see them.
+          If you enjoy using this tool send me your project made using it on
+          Twitter @jordantwells42! I would love to see them.
         </p>
       </div>
       <div className='w-full flex justify-center'>
@@ -113,7 +116,9 @@ export default function Explanation ({
           >
             Show Full Config
           </button>
-          <animated.div style={{ opacity, y}}>
+          <animated.div
+            style={{ opacity, y, display: showCode ? 'block' : 'none' }}
+          >
             <CodeBlock
               text={code}
               language='json'

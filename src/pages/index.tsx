@@ -45,12 +45,18 @@ const Home: NextPage = () => {
           name='viewport'
           content='width=device-width, initial-scale=1'
         ></meta>
-        <meta name="twitter:card" content="summary_large_image"></meta>
-        <meta name="twitter:site" content="@jordantwells42" />
-<meta name="twitter:creator" content="@jordantwells42" />
-<meta name="twitter:title" content="HueWind" />
-<meta name="twitter:description" content="A cohesive theme generator for Tailwind CSS" />
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/8213365/178173019-91491535-b7c2-4049-b4f5-2c4c43e8475c.png" />
+        <meta name='twitter:card' content='summary_large_image'></meta>
+        <meta name='twitter:site' content='@jordantwells42' />
+        <meta name='twitter:creator' content='@jordantwells42' />
+        <meta name='twitter:title' content='HueWind' />
+        <meta
+          name='twitter:description'
+          content='A cohesive theme generator for Tailwind CSS'
+        />
+        <meta
+          name='twitter:image'
+          content='https://user-images.githubusercontent.com/8213365/178173019-91491535-b7c2-4049-b4f5-2c4c43e8475c.png'
+        />
         <meta
           property='og:description'
           content='A cohesive theme generator for Tailwind CSS'
@@ -69,9 +75,13 @@ const Home: NextPage = () => {
         <meta property='og:url' content={'https://huewind.jordantwells.com'} />
       </Head>
 
-      <div  style={{
-            backgroundColor: lightColor.toHexString()
-          }} className='w-full  h-full flex flex-col justify-center items-center overflow-x-hidden'>
+      <div
+        style={{
+          backgroundColor: lightColor.toHexString()
+        }}
+        className='w-full  h-full flex flex-col justify-center items-center overflow-x-hidden'
+      >
+        {/*Probably should have used some sort of contextual state, oh well */}
         <Landing
           color={color}
           lightColor={lightColor}
@@ -102,7 +112,11 @@ const Home: NextPage = () => {
           palette={palette}
           setPalette={setPalette}
         />
-        <Explanation palette={palette} lightColor={lightColor} darkColor={darkColor}/>
+        <Explanation
+          palette={palette}
+          lightColor={lightColor}
+          darkColor={darkColor}
+        />
       </div>
     </>
   )

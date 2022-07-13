@@ -1,7 +1,7 @@
 import bestColor from '../bestColor'
 import CodeSnippet from './codesnippet'
 import { useState } from 'react'
-import Color from './color';
+import Color from './color'
 
 export default function Gradient ({
   palette,
@@ -33,9 +33,8 @@ export default function Gradient ({
           className='w-full flex flex-col justify-center items-center font-semibold relative'
           key={pidx}
         >
-          
-            <CodeSnippet swatch={swatch} show={showSwatchs[pidx] as boolean}/>
-          
+          <CodeSnippet swatch={swatch} show={showSwatchs[pidx] as boolean} />
+
           <button
             style={{
               backgroundColor: darkColor.toRgbString(),
@@ -48,7 +47,15 @@ export default function Gradient ({
           </button>
           {swatch.map((pcolor: any, sidx: number) => {
             return (
-              <Color key={sidx} idx={sidx} color={pcolor} style={{ backgroundColor: pcolor.color.toRgbString(), color: bestColor(pcolor.color, [lightColor, darkColor]) }}/>
+              <Color
+                key={sidx}
+                idx={sidx}
+                color={pcolor}
+                style={{
+                  backgroundColor: pcolor.color.toRgbString(),
+                  color: bestColor(pcolor.color, [lightColor, darkColor])
+                }}
+              />
             )
           })}
         </div>

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import CodeSnippet from './codesnippet'
-import bestColor from '../bestColor';
-import { Range } from 'react-range';
-import Gradient from './gradient';
+import bestColor from '../bestColor'
+import { Range } from 'react-range'
+import Gradient from './gradient'
 
 const tinycolor = require('tinycolor2')
 const Spline = require('cubic-spline')
@@ -71,7 +71,6 @@ export default function Generator ({
   setPalette: (arg0: any) => void
 }) {
   const [hueInvariance, setHueInvariance] = useState<number>(1.5)
-  
 
   function handleGenerate () {
     palette = []
@@ -82,9 +81,7 @@ export default function Generator ({
     setPalette(palette)
   }
 
-
-
-  function handleSlide(value: number){
+  function handleSlide (value: number) {
     setHueInvariance(value)
     palette = []
     palette.push(generateSwatch(lightColor, color, darkColor, value))
@@ -92,10 +89,7 @@ export default function Generator ({
       palette.push(generateSwatch(lightColor, color, darkColor, value))
     )
     setPalette(palette)
-
   }
-
-
 
   return (
     <div
@@ -103,43 +97,54 @@ export default function Generator ({
       className='w-full h-full md:h-screen flex-col flex justify-start items-center p-4'
     >
       <div className='w-full flex flex-col-reverse md:flex-row-reverse justify-center items-center text-center p-10'>
-      <div style={{color: bestColor(lightColor, [lightColor, darkColor])}} className="w-full md:w-1/2 flex flex-col justify-center items-center font-semibold p-5">
-          <h1 className='text-2xl'>Set Hue Invariance: <b>{hueInvariance}</b></h1>
-          <h1 className='text-2xl p-2'> (how much to ignore light and dark hues)</h1>
+        <div
+          style={{ color: bestColor(lightColor, [lightColor, darkColor]) }}
+          className='w-full md:w-1/2 flex flex-col justify-center items-center font-semibold p-5'
+        >
+          <h1 className='text-2xl'>
+            Set Hue Invariance: <b>{hueInvariance}</b>
+          </h1>
+          <h1 className='text-2xl p-2'>
+            {' '}
+            (how much to ignore light and dark hues)
+          </h1>
           <div className='w-full md:w-1/2 flex justify-center items-center'>
-        <Range
-        step={0.1}
-        min={1}
-        max={3}
-        values={[hueInvariance]}
-        onChange={(values) => handleSlide(values[0] as number)}
-        renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: '4px',
-              width: '100%',
-              backgroundColor: '#ccc'
-            }}
-          >
-            {children}
+            <Range
+              step={0.1}
+              min={1}
+              max={3}
+              values={[hueInvariance]}
+              onChange={values => handleSlide(values[0] as number)}
+              renderTrack={({ props, children }) => (
+                <div
+                  {...props}
+                  style={{
+                    ...props.style,
+                    height: '4px',
+                    width: '100%',
+                    backgroundColor: '#ccc'
+                  }}
+                >
+                  {children}
+                </div>
+              )}
+              renderThumb={({ props }) => (
+                <div
+                  {...props}
+                  style={{
+                    ...props.style,
+                    height: '10px',
+                    width: '10px',
+                    backgroundColor: bestColor(lightColor, [
+                      lightColor,
+                      darkColor
+                    ])
+                  }}
+                />
+              )}
+            />
           </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: '10px',
-              width: '10px',
-              backgroundColor: bestColor(lightColor, [lightColor, darkColor])
-            }}
-          />
-        )}
-      />
-      </div>
-      </div>
+        </div>
         <button
           style={{
             backgroundColor: darkColor.toHexString(),
@@ -151,9 +156,12 @@ export default function Generator ({
         >
           Press me to generate your custom palette!
         </button>
-        
       </div>
-      <Gradient lightColor={lightColor} darkColor={darkColor} palette={palette}/>
+      <Gradient
+        lightColor={lightColor}
+        darkColor={darkColor}
+        palette={palette}
+      />
     </div>
   )
 }
