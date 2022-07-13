@@ -8,9 +8,9 @@ export default function Gradient ({
   lightColor,
   darkColor,
 }: {
-  palette: any[][]
-  lightColor: any
-  darkColor: any
+  palette: {x: number, color: tinycolor.Instance}[][]
+  lightColor: tinycolor.Instance
+  darkColor: tinycolor.Instance
 }) {
   const [showSwatchs, setShowSwatchs] = useState<boolean[]>([
     false,

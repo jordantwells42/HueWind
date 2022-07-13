@@ -9,9 +9,9 @@ export default function Landing ({
   darkColor,
   handlePick
 }: {
-  color: any
-  lightColor: any
-  darkColor: any
+  color: tinycolor.Instance
+  lightColor: tinycolor.Instance
+  darkColor: tinycolor.Instance
   handlePick: (arg0: ColorResult) => void
 }) {
   return (
@@ -45,7 +45,7 @@ export default function Landing ({
         <SketchPicker
           disableAlpha={true}
           presetColors={[]}
-          color={color}
+          color={color.toHexString()}
           onChange={handlePick}
           onChangeComplete={handlePick}
         />

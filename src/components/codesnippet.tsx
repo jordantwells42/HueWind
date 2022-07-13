@@ -15,15 +15,20 @@ export default function CodeSnippet ({
   swatch,
   show
 }: {
-  swatch: any[]
+  swatch: {color: tinycolor.Instance, x: tinycolor.Instance}[]
   show: boolean
 }) {
   const { opacity, y } = useSpring({ opacity: show ? 1 : 0, y: show ? 0 : 10 })
 
+
+  if (!swatch || !swatch[5]) {
+    return null
+  }
   let code = `${camelize(nearestColor(swatch[5].color))}: {`
 
   for (let i = 0; i < swatch.length; i++) {
     const color = swatch[i]
+    if (!color) {return null}
     code += `\n\t${color.x}: "${color.color.toHexString()}",`
   }
 

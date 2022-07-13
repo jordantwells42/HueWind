@@ -9,7 +9,7 @@ export default function Color ({
   idx,
 }: {
   style: { backgroundColor: string; color: string }
-  color: { color: any; x: number }
+  color: { color: tinycolor.Instance; x: number }
   idx: number
 }) {
   const [styles, api] = useSpring(() => ({ from: { opacity: 0, x: 0, transform:`perspective(600px) rotateX(0deg)` } }))

@@ -11,10 +11,10 @@ export default function LightDark ({
   handlePickLight,
   handlePickDark
 }: {
-  color: any
-  complements: any
-  lightColor: any
-  darkColor: any
+  color: tinycolor.Instance
+  complements: tinycolor.Instance[]
+  lightColor: tinycolor.Instance
+  darkColor: tinycolor.Instance
   handlePickLight: (arg0: ColorResult) => void
   handlePickDark: (arg0: ColorResult) => void
 }) {
@@ -40,7 +40,7 @@ export default function LightDark ({
           <SketchPicker
             disableAlpha={true}
             presetColors={[]}
-            color={darkColor}
+            color={darkColor.toHexString()}
             onChange={handlePickDark}
           />
         </div>
@@ -70,7 +70,7 @@ export default function LightDark ({
           <SketchPicker
             disableAlpha={true}
             presetColors={[]}
-            color={lightColor}
+            color={lightColor.toHexString()}
             onChange={handlePickLight}
           />
         </div>

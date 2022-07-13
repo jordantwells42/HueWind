@@ -13,12 +13,12 @@ export default function Complements ({
   setComplements,
   setHavePicked
 }: {
-  color: any
-  complements: any
-  lightColor: any
-  darkColor: any
-  setComplements: (arg0: any) => void
-  setHavePicked: (arg0: any) => void
+  color: tinycolor.Instance
+  complements: tinycolor.Instance[]
+  lightColor: tinycolor.Instance
+  darkColor: tinycolor.Instance
+  setComplements: (arg0: (arg0:tinycolor.Instance[]) => tinycolor.Instance[] ) => void
+  setHavePicked: (arg0: boolean) => void
 }) {
   return (
     <div
@@ -54,8 +54,8 @@ export default function Complements ({
                 presetColors={[]}
                 color={ccolor}
                 onChange={inp => [
-                  setComplements((p: any) =>
-                    p.map((c: any, i: number) =>
+                  setComplements((p) =>
+                    p.map((c, i) =>
                       i === idx ? tinycolor(inp.hex) : c
                     )
                   ),

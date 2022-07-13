@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/tinycolor2": "^1.4.3",
     "color-name-list": "^9.18.1",
     "cubic-spline": "^3.0.3",
     "mathjs": "^10.6.4",

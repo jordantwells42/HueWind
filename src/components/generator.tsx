@@ -4,7 +4,7 @@ import bestColor from '../bestColor'
 import { Range } from 'react-range'
 import Gradient from './gradient'
 
-const tinycolor = require('tinycolor2')
+import tinycolor from 'tinycolor2'
 const Spline = require('cubic-spline')
 
 function clamp (value: number, min: number, max: number) {
@@ -12,9 +12,9 @@ function clamp (value: number, min: number, max: number) {
 }
 
 function generateSwatch (
-  lightColor: any,
-  seedColor: any,
-  darkColor: any,
+  lightColor: tinycolor.Instance,
+  seedColor: tinycolor.Instance,
+  darkColor: tinycolor.Instance,
   hueInvariance: number
 ) {
   const light = tinycolor(lightColor)
@@ -55,6 +55,7 @@ function generateSwatch (
   return swatch
 }
 
+const color = tinycolor("#f1eaea")
 export default function Generator ({
   color,
   complements,

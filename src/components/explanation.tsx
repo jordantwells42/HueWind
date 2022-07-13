@@ -9,9 +9,9 @@ export default function Explanation ({
   lightColor,
   darkColor
 }: {
-  palette: any[][]
-  lightColor: any
-  darkColor: any
+  palette: {x: number, color: tinycolor.Instance}[][]
+  lightColor: tinycolor.Instance
+  darkColor: tinycolor.Instance
 }) {
   function camelize (str: string) {
     return str

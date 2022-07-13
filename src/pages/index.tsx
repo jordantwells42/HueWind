@@ -24,17 +24,17 @@ const Home: NextPage = () => {
   const [havePicked, setHavePicked] = useState(false)
   const [palette, setPalette] = useState<any[]>([])
 
-  function handlePick (inpcolor: any) {
-    setColor(tinycolor(inpcolor.hsv))
+  function handlePick (inpcolor: ColorResult) {
+    setColor(tinycolor(inpcolor.hex))
     !havePicked && setComplements(color.tetrad().slice(1))
   }
 
-  function handlePickLight (inpcolor: any) {
-    setLightColor(tinycolor(inpcolor.hsv))
+  function handlePickLight (inpcolor: ColorResult) {
+    setLightColor(tinycolor(inpcolor.hex))
   }
 
-  function handlePickDark (inpcolor: any) {
-    setDarkColor(tinycolor(inpcolor.hsv))
+  function handlePickDark (inpcolor: ColorResult) {
+    setDarkColor(tinycolor(inpcolor.hex))
   }
 
   return (
