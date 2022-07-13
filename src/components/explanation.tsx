@@ -48,7 +48,7 @@ export default function Explanation ({
       const color = swatch[j]
       code += `\n\t\t\t\t\t${color.x}: "${color.color.toHexString()}",`
     }
-    code += '\n\t\t\t\t},\n'
+    code += '\n\t\t\t\t},'
   }
 
   code += `\n\t\t\t},\n\t\t},\n\t},\n}`
@@ -118,6 +118,7 @@ export default function Explanation ({
           </button>
           <animated.div
             style={{ opacity, y, display: showCode ? 'block' : 'none' }}
+            
           >
             <CodeBlock
               text={code}
