@@ -79,7 +79,7 @@ const Home: NextPage = () => {
         style={{
           backgroundColor: lightColor.toHexString()
         }}
-        className='w-full  h-full flex flex-col justify-center items-center overflow-x-hidden'
+        className='w-full  h-full md:snap-y flex flex-col justify-center items-center overflow-x-hidden'
       >
         {/*Probably should have used some sort of contextual state, oh well */}
         <Landing

@@ -19,7 +19,7 @@ export default function LightDark ({
   handlePickDark: (arg0: ColorResult) => void
 }) {
   return (
-    <div className='w-full h-full md:h-screen flex flex-col justify-center items-center'>
+    <div className='w-full h-full md:h-screen lg:snap-start flex flex-col justify-center items-center'>
       <div
         style={{ backgroundColor: darkColor.toHexString() }}
         className='w-full h-1/2 flex flex-col md:flex-row justify-center items-center gap-10 relative p-3'

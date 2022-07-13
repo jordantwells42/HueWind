@@ -94,7 +94,7 @@ export default function Generator ({
   return (
     <div
       style={{ backgroundColor: lightColor.toHexString() }}
-      className='w-full h-full md:h-screen flex-col flex justify-start items-center p-4'
+      className='w-full h-full md:h-screen md:snap-start flex-col flex justify-start items-center p-4'
     >
       <div className='w-full flex flex-col-reverse md:flex-row-reverse justify-center items-center text-center p-10'>
         <div

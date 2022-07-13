@@ -54,7 +54,7 @@ export default function Explanation ({
   code += `\n\t\t\t},\n\t\t},\n\t},\n}`
 
   return (
-    <div className='w-full h-full flex flex-col md:flex-row justify-between p-4 pb-20'>
+    <div className='w-full h-full md:snap-align-none flex flex-col md:flex-row justify-between p-4 pb-20'>
       <div
         style={{ color: bestColor(lightColor, [lightColor, darkColor]) }}
         className='w-full flex-col flex justify-start items-center gap-4'
