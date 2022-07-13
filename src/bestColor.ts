@@ -1,6 +1,5 @@
+import tinycolor from "tinycolor2"
 
-const tinycolor = require('tinycolor2')
-
-export default function bestColor(color:any, colors: any){
+export default function bestColor(color:tinycolor.Instance, colors: tinycolor.Instance[]){
     return tinycolor.mostReadable(color, colors, {includeFallbackColors:true}).toHexString()
 }
