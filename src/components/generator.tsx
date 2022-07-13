@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CodeSnippet from './codesnippet'
 import bestColor from '../bestColor';
 import { Range } from 'react-range';
+import Gradient from './gradient';
 
 const tinycolor = require('tinycolor2')
 const Spline = require('cubic-spline')
@@ -70,7 +71,7 @@ export default function Generator ({
   setPalette: (arg0: any) => void
 }) {
   const [hueInvariance, setHueInvariance] = useState<number>(1.5)
-  const [showSwatchs, setShowSwatchs] = useState<boolean[]>([false, false, false, false])
+  
 
   function handleGenerate () {
     palette = []
@@ -81,9 +82,7 @@ export default function Generator ({
     setPalette(palette)
   }
 
-  function handleShowSwatch(idx :number){
-    setShowSwatchs(showSwatchs.map((show, i) => i === idx ? !show : show))
-  }
+
 
   function handleSlide(value: number){
     setHueInvariance(value)
@@ -154,50 +153,7 @@ export default function Generator ({
         </button>
         
       </div>
-      <div
-        style={{
-          color: bestColor(lightColor, [lightColor, darkColor])
-        }}
-        className='flex flex-col md:flex-row w-full justify-center items-center gap-2'
-      >
-        {palette.map((swatch: any, idx:number) => (
-          <div
-            className='w-full flex flex-col justify-center items-center font-semibold relative'
-            key={swatch}
-          > 
-          <div style={{ backgroundColor: darkColor.toRgbString(), color: bestColor(darkColor, [lightColor, darkColor]), display: showSwatchs[idx]?"block":"none" }} className="absolute rounded-xl" >
-            <CodeSnippet swatch={swatch} />
-              </div>
-            <button style={{ backgroundColor: darkColor.toRgbString(), color: bestColor(darkColor, [lightColor, darkColor]) }}  className="w-full p-1" onClick={() => handleShowSwatch(idx)}>{!showSwatchs[idx] ? 'Show Tailwind Config' : 'Hide'}</button>
-            {swatch.map((pcolor: any, idx: number) => {
-              return (
-                <div
-                  key={idx}
-                  style={{ backgroundColor: pcolor.color.toRgbString() }}
-                  className='w-full flex flex-col justify-end items-center font-semibold'
-                >
-                  <h1
-                    style={{
-                      color: bestColor(pcolor.color, [lightColor, darkColor])
-                    }}
-                  >
-                    {pcolor.color.toHexString()}
-                  </h1>
-                  <h1
-                    style={{
-                      color: bestColor(pcolor.color, [lightColor, darkColor])
-                    }}
-                  >
-                    {pcolor.x}
-                  </h1>
-                </div>
-              )
-            })}
-            
-            
-          </div>
-        ))}
-      </div>
+      <Gradient lightColor={lightColor} darkColor={darkColor} palette={palette}/>
     </div>
   )
 }

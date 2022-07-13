@@ -1,27 +1,40 @@
-import { CodeBlock , dracula} from "react-code-blocks";
-import nearestColor from "../nearestColor";
+import { CodeBlock, dracula } from 'react-code-blocks'
+import nearestColor from '../nearestColor'
+import { useSpring, animated } from 'react-spring';
+import { useEffect } from 'react';
 
-function camelize(str: string) {
-  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word: string, index: number) {
-    return index === 0 ? word.toLowerCase() : word.toUpperCase();
-  }).replace(/\s+/g, '');
+function camelize (str: string) {
+  return str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word: string, index: number) {
+      return index === 0 ? word.toLowerCase() : word.toUpperCase()
+    })
+    .replace(/\s+/g, '')
 }
 
-export default function CodeSnippet ({ swatch }: { swatch: any[] }) {
-    let code = `${camelize(nearestColor(swatch[5].color))}: {`
+export default function CodeSnippet ({ swatch, show }: { swatch: any[], show: boolean }) {
+  const {opacity, y} = useSpring({opacity: show? 1:0, y:show?0:10 })
 
-    for (let i = 0; i < swatch.length; i++) {
-        const color = swatch[i]
-        code += `\n\t${color.x}: "${color.color.toHexString()}",`
-    }
 
-    code += `\n}`
+  let code = `${camelize(nearestColor(swatch[5].color))}: {`
 
-  
-    return (
-    <div className='flex flex-col'>
-        <CodeBlock className="p-6" language="json" text={code} theme={dracula} showLineNumbers={false} />
-    </div>
+  for (let i = 0; i < swatch.length; i++) {
+    const color = swatch[i]
+    code += `\n\t${color.x}: "${color.color.toHexString()}",`
+  }
+
+  code += `\n}`
+
+  return (
+    <animated.div style={{opacity, y}} className='absolute top-10 flex flex-col'>
+      <CodeBlock
+      style={{opacity, y}}
+        className='p-6'
+        language='json'
+        text={code}
+        theme={dracula}
+        showLineNumbers={false}
+      />
+    </animated.div>
   )
 }
 /*

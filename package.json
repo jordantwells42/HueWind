@@ -19,6 +19,7 @@
     "react-color": "^2.19.3",
     "react-dom": "18.2.0",
     "react-range": "^1.8.13",
+    "react-spring": "^9.4.5",
     "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
