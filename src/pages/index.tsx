@@ -9,6 +9,7 @@ import Complements from '../components/complements'
 import Generator from '../components/generator'
 import CodeSnippet from '../components/codesnippet'
 import Explanation from '../components/explanation'
+import Footer from '../components/Footer';
 
 const tinycolor = require('tinycolor2')
 
@@ -79,7 +80,7 @@ const Home: NextPage = () => {
         style={{
           backgroundColor: lightColor.toHexString()
         }}
-        className='w-full md:snap-y flex flex-col justify-center items-center overflow-x-hidden'
+        className='w-full relative md:snap-y flex flex-col justify-center items-center overflow-x-hidden'
       >
         {/*Probably should have used some sort of contextual state, oh well */}
         <Landing
@@ -117,6 +118,7 @@ const Home: NextPage = () => {
           lightColor={lightColor}
           darkColor={darkColor}
         />
+        <Footer />
       </div>
     </>
   )

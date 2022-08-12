@@ -54,21 +54,21 @@ export default function Explanation ({
   code += `\n\t\t\t},\n\t\t},\n\t},\n}`
 
   return (
-    <div className='w-full h-full md:snap-align-none flex flex-col md:flex-row justify-between p-4 pb-20'>
+    <div className='w-full h-full md:snap-align-none flex flex-col md:flex-row justify-center p-2 md:p-4 pb-20'>
       <div
         style={{ color: bestColor(lightColor, [lightColor, darkColor]) }}
-        className='w-full flex-col flex justify-start items-center gap-4'
+        className='max-w-prose md:w-1/2 w-full flex-col flex justify-start items-center gap-4 p-4 pb-20'
       >
         <h1 className='font-bold text-center text-3xl'>
           How to update your Tailwind Config
         </h1>
-        <p className='max-w-prose w-3/4 text-left text-xl'>
+        <p className='text-left text-xl'>
           To use your new Tailwind palette you will need to add it to your{' '}
           <i className='font-semibold'>tailwind.config.js</i> file. If you do
           not already have that file in the root directory of your project you
           will need to create it.
         </p>
-        <p className='max-w-prose w-3/4 text-left text-xl'>
+        <p className='text-left text-xl'>
           Read the complete documentation on the official{' '}
           <a
             className='font-semibold italic underline'
@@ -82,11 +82,11 @@ export default function Explanation ({
         <h1 className='font-bold text-center text-3xl pt-10'>
           Why did I make this?
         </h1>
-        <p className='max-w-prose w-3/4 text-left text-xl'>
+        <p className='text-left text-xl'>
           I wanted a way to create quickly make a cohesive color theme in
           Tailwind CSS.
         </p>
-        <p className='max-w-prose w-3/4 text-left text-xl'>
+        <p className='text-left text-xl'>
           This tool uses cubic spline interpolation to generate colors that are
           inherently related to your light and dark values, giving the entire
           palette a cohesive feel.
@@ -94,18 +94,18 @@ export default function Explanation ({
         <h1 className='font-bold text-center text-3xl pt-10'>
           How should I use it?
         </h1>
-        <p className='max-w-prose w-3/4 text-left text-xl'>
+        <p className='text-left text-xl'>
           For maximum readibility, use text colors that maximize contrast on any
           given color. Text on the gradient shows the best color for optimal
           contrast (out of light, dark, #FFFFFF, and #000000).
         </p>
-        <p className='max-w-prose w-3/4 text-left text-xl'>
+        <p className=' text-left text-xl'>
           If you enjoy using this tool send me your project made using it on
           Twitter @jordantwells42! I would love to see them.
         </p>
       </div>
-      <div className='w-full flex justify-center'>
-        <div className='w-3/4'>
+      <div className='w-full md:w-1/2 flex justify-center'>
+        <div className='w-full md:w-3/4'>
           <button
             style={{
               backgroundColor: darkColor.toHexString(),
@@ -118,7 +118,7 @@ export default function Explanation ({
           </button>
           <animated.div
             style={{ opacity, y, display: showCode ? 'block' : 'none' }}
-            
+            className="pb-20"
           >
             <CodeBlock
               text={code}
